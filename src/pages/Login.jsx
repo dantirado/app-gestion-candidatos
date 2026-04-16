@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { end_points } from "../services/api"
 
+
 function Login() {
     const [getEmail, setEmail] = useState("")
     const [getPassword, setPassword] = useState("")
@@ -9,16 +10,19 @@ function Login() {
     const [error, setError] = useState(null)
 
 
+
     function fetchUsers() {
         fetch(end_points.users)
             .then((response) => response.json())
             .then((data) => setUsers(data))
             .catch((err) => setError(err))
 
+
     }
     useEffect(() => {
         fetchUsers()
     }, [])
+
     console.log(users)
 
     function findUser(){
@@ -27,11 +31,13 @@ function Login() {
             alert("Bienvenido al sistema")
         }else {
             alert("Error de credenciales")
+
         }
     }
-
+}
     return (
         <div>
+
             <div class="container">
                 <div class="content">
                     <i style="background-image: url(&quot;https://static.cdninstagram.com/rsrc.php/v3/yS/r/ajlEU-wEDyo.png&quot;); background-position: 0px -52px; background-size: auto; width: 175px; height: 51px; background-repeat: no-repeat; display: inline-block;" role="img" class="" aria-label="Instagram" data-visualcompletion="css-img"></i>
@@ -68,9 +74,10 @@ function Login() {
                         </button>
                         <button>Forgot password?</button>
                     </div>
+
                 </div>
             </div>
         </div>
     )
-}
+
 export default Login    
